@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAREA_I</title>
+</head>
+
+<body>
+
+    <h1>TAREA_I_GRUPAL</h1>
+    <p>Programa que determina si un numero es primo y suma los primos menores a èl</p>
+    <p>Bryan Recinos / Estuardo Patzan / Kimberly Salazar</p>
+    <hr />
+    <div id="salida">
+        <p id="texto-salida" style="padding-left: 5px;"></p>
+    </div>
+    <hr />
+    <label for="entrada"> Ingrese el numero: <br />
+        <input type="text" id="entrada">
+    </label>
+    <br />
+
+    <button onclick="verificarnumero()">Calcular</button>
+
+    <script>
+        function verificarnumero() {
+            let numero = parseInt(document.getElementById("entrada").value);
+            let indicadorprimo = true;
+            let sumatotal = 0;
+            let cadena = "";
+
+            for (let i = 1; i <= numero; i++) {
+                let contador = 0;
+                for (let j = 1; j <= i; j++) {
+                    if (i % j == 0)
+                        contador++;
+                }
+                if (contador == 2) {
+                    cadena = cadena + " " + i;
+                    sumatotal = sumatotal + i;
+                }
+            }
+
+            cadena = cadena + " " + "= ";
+            document.getElementById("texto-salida").innerHTML = cadena + sumatotal;
+        }
+    </script>
+
+</body>
+
+</html>
